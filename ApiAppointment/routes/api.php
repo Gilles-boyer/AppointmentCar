@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\CustumerController;
 use App\Http\Controllers\DealershipController;
 use App\Http\Controllers\InstructorController;
@@ -25,3 +26,5 @@ Route::post('test_center_vehicles', [TestCenterVehicleController::class, 'store'
 Route::delete('test_center_vehicles', [TestCenterVehicleController::class, 'destroy']);
 Route::post('test_center_instructors', [TestCenterInstructorController::class, 'store']);
 Route::delete('test_center_instructors', [TestCenterInstructorController::class, 'destroy']);
+Route::post('check-availability', [AvailabilityController::class, 'checkAvailability']);
+Route::post('create_reservation', [ReservationController::class, 'storeWithCustumer']);

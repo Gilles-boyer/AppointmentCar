@@ -33,4 +33,8 @@ class TestCenter extends Model
     {
         return $this->belongsToMany(Instructor::class, 'test_center_instructors')->using(TestCenterInstructor::class);
     }
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

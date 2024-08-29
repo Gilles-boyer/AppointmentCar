@@ -21,12 +21,24 @@ class VehicleRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'registration_number' => 'required|string|max:255|unique:vehicles,registration_number,' . $this->vehicle->id,
-            'model' => 'required|string|max:255',
-            'trim' => 'required|string|max:255',
-            'automatic_transmission' => 'required|boolean',
-            'dealership_id' => 'required|exists:dealerships,id',
-        ];
+
+        if(isset($this->vehicle->id)) {
+            return [
+                'registration_number' => 'required|string|max:255|unique:vehicles,registration_number,' . $this->vehicle->id,
+                'model' => 'required|string|max:255',
+                'trim' => 'required|string|max:255',
+                'automatic_transmission' => 'required|boolean',
+                'dealership_id' => 'required|exists:dealerships,id',
+            ];
+        } else {
+            return [
+                'registration_number' => 'required|string|max:255|unique:vehicles,registration_number',
+                'model' => 'required|string|max:255',
+                'trim' => 'required|string|max:255',
+                'automatic_transmission' => 'required|boolean',
+                'dealership_id' => 'required|exists:dealerships,id',
+            ];
+        }
+
     }
 }

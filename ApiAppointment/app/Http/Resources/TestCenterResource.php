@@ -25,7 +25,8 @@ class TestCenterResource extends JsonResource
             'banner_image' => $this->banner_image,
             'logo_image' => $this->logo_image,
             'dealership' => $this->dealership,
-            'vehicles' => $this->vehicles
+            'vehicles' => $this->vehicles,
+            'instructors' => $this->instructors
         ];
     }
 }
